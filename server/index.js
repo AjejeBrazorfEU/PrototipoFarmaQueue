@@ -21,6 +21,7 @@ let prenotazioni = require('./data/prenotazioni.json');
 let farmacie = require('./data/farmacie.json');
 let utenti = require('./data/utenti.json');
 let logs = require('./data/logs.json');
+const { randomInt } = require('crypto');
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -90,6 +91,18 @@ app.get('/homeAdmin/getFarmacie', (req, res) => {
     res.send(farmacie);
 })
 
+app.get('/homeAdmin/getFarmacia',   (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.sendStatus(404);
+    }else{
+      res.send(farmacia);
+    }
+  }
+);
+
+
 app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
     const query = req.query;
     const farmacia = {
@@ -152,6 +165,42 @@ app.get('/homeAdmin/getUtenti', (req, res) => {
     res.send(utenti);
 })
 
+app.get('/homeAdmin/nuovoUtente', (req, res) => {
+    const query = req.query;
+    const utente = {
+        id: utenti.length + 1,
+        nome: query.nome,
+        cognome: query.cognome,
+        data: query.data,
+        email: query.email,
+    }
+    console.log(utente);
+    utenti.push(utente);
+    logs.push({
+        tipo: "NuovoUtente",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+  }
+);
+
+app.get('/homeAdmin/eliminaUtente', (req, res) => {
+    const email = req.query.email;
+    const utente = utenti.find(u => u.email === email);
+    if(!utente) {
+      res.sendStatus(404);
+    }else{
+      utenti = utenti.filter(u => u.email !== email);
+      logs.push({
+        tipo: "EliminaUtente",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+
+      res.sendStatus(200);
+    }
+});
+        
 app.get('/homeAdmin/getFarmacisti', (req, res) => {
     const idFarmacia = parseInt(req.query.idFarmacia);
     const farmacia = farmacie.find(f => f.id === idFarmacia);
@@ -181,6 +230,42 @@ app.get('/homeAdmin/aggiungiFarmacista', (req, res) => {
 
 app.get('/homeAdmin/getLogs', (req, res) => {
   res.send(logs);
+})
+
+app.get('/homeAdmin/getTotem', (req, res) => {
+  const idFarmacia = parseInt(req.query.idFarmacia);
+  const farmacia = farmacie.find(f => f.id === idFarmacia);
+  if(!farmacia) {
+    res.send([]);
+  }else{
+    res.send(farmacia.totem);
+  }
+})
+
+app.get('/homeAdmin/creaTotem', (req, res) => {
+  const query = req.query;
+  let farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
+  farmacia.totem.push({
+    id: randomInt(100000, 999999),
+  });
+  logs.push({
+    tipo: "CreaTotem",
+    orario: moment().format("DD/MM/YYYY HH:mm"),
+    idUtente: 'ADMIN',
+  })
+  res.sendStatus(200);
+})
+
+app.get('/homeAdmin/eliminaTotem', (req, res) => {
+  const query = req.query;
+  let farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
+  farmacia.totem = farmacia.totem.filter(t => t.id !== parseInt(query.idTotem));
+  logs.push({
+    tipo: "EliminaTotem",
+    orario: moment().format("DD/MM/YYYY HH:mm"),
+    idUtente: 'ADMIN',
+  })
+  res.sendStatus(200);
 })
 
 app.get('/homeFarmacista/getPrenotazioni', (req, res) => {

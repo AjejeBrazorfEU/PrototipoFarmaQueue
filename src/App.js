@@ -52,7 +52,7 @@ function App() {
         <Route path='/viewNuovaPrenotazioneUtente' element={<ViewNuovaPrenotazioneUtente/>} />
         <Route path='/homeGestioneFarmacie' element={<HomeGestioneFarmacie/>} />
         <Route path='/homeGestioneFarmacisti/:idFarmacia' element={<HomeGestioneFarmacisti/>} />
-        <Route path='/homeGestioneTotem' element={<HomeGestioneTotem/>} />
+        <Route path='/homeGestioneTotem/:idFarmacia' element={<HomeGestioneTotem/>} />
         <Route path='/homeGestioneUtenti' element={<HomeGestioneUtenti/>} />
         <Route path='/viewAggiungiFarmacia/:idFarmacia' element={<ViewAggiungiFarmacia/>} />
         <Route path='/viewAggiungiFarmacista/:idFarmacia' element={<ViewAggiungiFarmacista/>} />
