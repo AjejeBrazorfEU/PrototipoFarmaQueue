@@ -39,7 +39,7 @@ function HomeGestioneFarmacie() {
       <div className="prenotazioniUtente">
           {farmacie.map((farmacia) => (
               <div className="cardPrenotazione">
-                  <h2>{farmacia.nome} value={state.nome}</h2>
+                  <h2>{farmacia.nome}</h2>
                   <h3>{farmacia.indirizzo}</h3>
                   <p>Telefono</p>
                   <h3>{farmacia.telefono}</h3>
