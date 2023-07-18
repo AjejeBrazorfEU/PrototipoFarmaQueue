@@ -19,6 +19,8 @@ function ViewAggiungiFarmacista() {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     console.log(state);
     e.preventDefault();
@@ -32,8 +34,6 @@ function ViewAggiungiFarmacista() {
       }
     });
   };
-
-  const navigate = useNavigate();
 
   const handleClick = (destination) => {
       navigate(destination);
