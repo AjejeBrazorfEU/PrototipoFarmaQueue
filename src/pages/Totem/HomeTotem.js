@@ -47,7 +47,7 @@ export default function HomeTotem() {
     };
 
     return (
-        <div>
+        <div className="Screen">
             <h1>Buongiorno, da questo totem si può prenotare il prossimo posto libero in fila</h1>
             <h2>Prossimo posto libero</h2>
             {state.dataEOra}
