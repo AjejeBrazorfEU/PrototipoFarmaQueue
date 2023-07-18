@@ -106,7 +106,7 @@
   padding: 2em;
 }
 
-.nuovaPrenotazioneButton{
+.nuovoButton{
   border-radius: 10px;
   background: #5EBA24;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -114,4 +114,50 @@
   height: 100px;
   font-size: 25px;
   cursor: pointer;
+}
+.annullaButton{
+  border-radius: 10px;
+  background: #bc1b12;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 300px;
+  height: 100px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  gap: 20px;
+  height: 100%;
+  padding: 20px;
+}
+.form input{
+  width: 300px;
+}
+.campoForm{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.container{
+  padding: 20px;
+}
+
+.divBottoni{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.elencoVisAdmin{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.icona{
+  padding: 50px;
 }

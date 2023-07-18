@@ -34,7 +34,7 @@ export default function HomeUtente() {
                 ))}
             </div>
 
-            <button className="nuovaPrenotazioneButton" onClick={() => nuovaPrenotazione()}>Nuova prenotazione</button>
+            <button className="nuovoButton" onClick={() => nuovaPrenotazione()}>Nuova prenotazione</button>
         </div>
     )
 }
