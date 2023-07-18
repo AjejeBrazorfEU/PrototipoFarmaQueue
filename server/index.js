@@ -91,6 +91,18 @@ app.get('/homeAdmin/getFarmacie', (req, res) => {
     res.send(farmacie);
 })
 
+app.get('/homeAdmin/getFarmacia',   (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.sendStatus(404);
+    }else{
+      res.send(farmacia);
+    }
+  }
+);
+
+
 app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
     const query = req.query;
     const farmacia = {
