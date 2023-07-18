@@ -45,7 +45,7 @@ function HomeGestioneFarmacie() {
                   <p>Email</p>
                   <h3>{farmacia.email}</h3>
                   <div className="divBottoni">
-                    <div className="cardBottone" onClick={() => nuovaFarmacia("/HomeGestioneFarmacisti")}>
+                    <div className="cardBottone" onClick={() => nuovaFarmacia("/HomeGestioneFarmacisti/"+farmacia.id)}>
                       <div className="icona">
                           <FaUserMd size="50"/>
                       </div>
