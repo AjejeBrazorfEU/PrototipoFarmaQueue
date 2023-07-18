@@ -16,7 +16,11 @@ app.use(function(req, res, next) {
     next();
   });
 
-const prenotazioni = require('./data/prenotazioni.json');
+let prenotazioni = require('./data/prenotazioni.json');
+let farmacie = require('./data/farmacie.json');
+let utenti = require('./data/utenti.json');
+let logs = require('./data/logs.json');
+const { log } = require('console');
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -38,11 +42,50 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/homeUtente/getPrenotazioni', (req, res) => {
-    let listaPrenotazioni = prenotazioni.sort(() => Math.random() - 0.5);
-    /*listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
-    listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
-    listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);*/
-    res.send(listaPrenotazioni.slice(0, 3));
+    res.send(prenotazioni);
+})
+
+app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
+    const query = req.query;
+    let dataStringa = new query.dataEOra;
+    const prenotazione = {
+        id: prenotazioni.length + 1,
+        farmacia: query.farmacia,
+        dataEOra: query.dataEOra,
+        prestazione: query.prestazione
+        }
+    prenotazioni.push(prenotazione);
+    logs.push({
+        id: logs.length + 1,
+        dataEOra: moment.format("DD/MM/YYYY HH:mm"),
+        idUtente: '123456',
+    });
+
+    // sending ok message 200
+    res.sendStatus(200);
+  }
+);
+
+app.get('/homeAdmin/getFarmacie', (req, res) => {
+    res.send(farmacie);
+})
+
+app.get('/homeAdmin/getUtenti', (req, res) => {
+    res.send(utenti);
+})
+
+app.get('/homeAdmin/getFarmacisti', (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.send([]);
+    }else{
+      res.send(farmacia?.farmacisti);
+    }
+});
+
+app.get('/homeAdmin/getLogs', (req, res) => {
+  res.send(logs);
 })
 
 app.listen(port, () => {

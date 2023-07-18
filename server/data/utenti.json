@@ -1,0 +1,23 @@
+[
+    {
+      "nome": "Maria",
+      "cognome": "Rossi",
+      "data": "02/07/1996",
+      "email": "mercadobarton@malathion.com",
+      "id" : "742934"
+    },
+    {
+      "nome": "Luca",
+      "cognome": "Rossi",
+      "data": "29/07/1996",
+      "email": "brownbranch@daisu.com",
+      "id" : "987654"
+    },
+    {
+      "nome": "Marco",
+      "cognome": "Verdi",
+      "data": "14/06/1993",
+      "email": "simonesanford@zytrek.com",
+      "id" : "123456"
+    }
+]
