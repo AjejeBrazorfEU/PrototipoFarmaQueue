@@ -60,7 +60,7 @@ function ViewRegistrazioneUtenteAdmin() {
           </div>
           <div className="divBottoni">
             <button type="submit" className="nuovoButton">Registra</button>
-            <button onClick={() => handleClick("/homeGestioneFarmacisti/"+idFarmacia)} className="annullaButton">Annulla</button>
+            <button onClick={() => handleClick("/homeGestioneUtenti")} className="annullaButton">Annulla</button>
           </div>
         </form>
     </div>
