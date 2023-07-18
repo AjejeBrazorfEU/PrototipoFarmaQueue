@@ -19,6 +19,17 @@ function HomeGestioneFarmacisti() {
       })
   }, []);
 
+  const eliminaFarmacista = (idFarmacista) => {
+    axios.get(`http://localhost:3001/homeAdmin/eliminaFarmacista`, {params: {idFarmacista: idFarmacista}})
+        .then(res => {
+            if(res.status == 200){
+                alert("Farmacista eliminat* con successo");
+                setFarmacisti(farmacisti.filter((farmacista) => farmacista.id != idFarmacista));
+            }else{
+                alert("Errore durante l'eliminazione della farmacista");
+            }
+        })
+  }
 
   return (
     <div className="container">
@@ -39,7 +50,7 @@ function HomeGestioneFarmacisti() {
                       </div>
                     </div>
                                         
-                    <div className="cardBottone lastButton">
+                    <div className="cardBottone lastButton" onClick={() => eliminaFarmacista(farmacista.id)}>
                       <div className="icona">
                           <FaRegTrashAlt size="50"/>
                       </div>
@@ -48,7 +59,7 @@ function HomeGestioneFarmacisti() {
               </div>
           ))}
       </div>
-      <button className="nuovoButton" onClick={() => handleEvent("/viewAggiungiFarmacista")}>Nuovo farmacista</button>
+      <button className="nuovoButton" onClick={() => handleEvent("/viewAggiungiFarmacista/"+idFarmacia)}>Nuovo farmacista</button>
     </div>
   );
 }
