@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 
 function ViewVisualizzaLog() {
-    const [logs, setLogs] = useState([]);
+  const [log, setLog] = useState([]);
 
-    useEffect(() => {
-        axios.get(`http://localhost:3001/homeAdmin/getLogs`)
-            .then(res => {
-                setLogs(res.data);
-            })
-    }, []);
-
+  useEffect(() => {
+      axios.get(`http://localhost:3001/homeAdmin/getLog`)
+      .then(res => {
+          setLog(res.data);
+      })
+  }, []);
 
   return (
-    <div>
-      <h1>ViewVisualizzaLog</h1>
-        <div className="prenotazioniUtente">
-            {logs.map((log) => (
-                <div className="cardPrenotazione">
-                    <h2>{log.tipo}</h2>
-                    <p>IdUtente</p>
-                    <h3>{log.idUtente}</h3>
-                    <p>Orario</p>
-                    <h3>{log.orario}</h3>
-                </div>
-            ))}
-        </div>
-    </div>
+      <div className='container'>
+      <h1>Visualizza Log</h1>
+      <div className="prenotazioniUtente">
+          {log.map((log) => (
+              <div className="cardPrenotazione">
+                  <p>Operazione:</p>
+                  <h2>{log.tipo}</h2>
+                  <p>IdUtente</p>
+                  <h3>{log.idUtente}</h3>
+                  <p>Orario:</p>
+                  <h3>{log.orario}</h3>
+              </div>
+          ))}
+      </div>
+      </div>
   );
 }
 

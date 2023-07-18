@@ -1,0 +1,26 @@
+[
+    {
+      "username": "a.passi",
+      "nome": "Alice",
+      "cognome": "Passi",
+      "data": "06/09/1981",
+      "id" : "9375638",
+      "bloccato": false
+    },
+    {
+      "username": "c.valle",
+      "nome": "Clara",
+      "cognome": "Valle",
+      "data": "09/12/1969",
+      "id" : "2765933",
+      "bloccato": false
+    },
+    {
+      "username": "g.alpi",
+      "nome": "Giovanni",
+      "cognome": "Alpi",
+      "data": "14/06/1975",
+      "id" : "2847492",
+      "bloccato": false
+    }
+]

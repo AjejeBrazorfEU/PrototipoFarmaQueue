@@ -1,74 +1,259 @@
 [
   {
-    "nome": "Farmacia Minore",
-    "indirizzo": "Via del Risorgimento",
-    "telefono": "051 718272",
-    "email": "woodsfreeman@singavera.com",
     "id": 287946,
-    "farmacisti": [
+    "nome": "Farmacia Minore",
+    "orari": [
       {
-        "nome": "Luca",
-        "cognome": "Verdi",
-        "id": 876730,
-        "data": "17/08/1958"
+        "giorno": "lunedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
       },
       {
-        "nome": "Luca",
-        "cognome": "Verdi",
-        "id": 717363,
-        "data": "19/08/1993"
+        "giorno": "martedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
       },
       {
-        "nome": "Maria",
-        "cognome": "Verdi",
-        "id": 834072,
-        "data": "09/08/1983"
+        "giorno": "mercoledì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "giovedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "venerdì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "sabato",
+        "apertura": "08:00",
+        "chiusura": "13:00"
+      },
+      {
+        "giorno": "domenica",
+        "apertura": "chiuso",
+        "chiusura": "chiuso"
       }
     ],
+    "email": "farmaciaminore@gmail.com",
+    "telefono": "051 718272",
+    "posizione": [
+      {
+        "indirizzo": "Via del Risorgimento 12",
+        "comune": "Bologna",
+        "provincia": "Bologna"
+      }
+    ],
+    "totemPresente": true,
     "totem": [
       {
         "id": 864460
       }
+    ],
+    "farmacisti": [
+      {
+        "username": "a.passi",
+        "nome": "Alice",
+        "cognome": "Passi",
+        "data": "06/09/1981",
+        "id" : "9375638",
+        "bloccato": false
+      },
+      {
+        "username": "m.soli2",
+        "nome": "Maria",
+        "cognome": "Soli",
+        "data": "29/01/1976",
+        "id" : "9375638",
+        "bloccato": false
+      },
+      {
+        "username": "s.longhi",
+        "nome": "Sofia",
+        "cognome": "Longhi",
+        "data": "22/03/1990",
+        "id" : "9375638",
+        "bloccato": false
+      }
+    ],
+    "prenotazioni": [
+      {
+        "id": "64b25c8a144b83f26da3c99a",
+        "dataEOra": "30/08/2023 12:30",
+        "servita": true,
+        "prestazione": "PRESSIONE",
+        "farmaci": [],
+        "idFarmacia": "287946"
+      },
+      {
+        "id": "53076cff94394d6dabbd539d",
+        "dataEOra": "26/08/2023 09:00",
+        "servita": false,
+        "prestazione": "FARMACO",
+        "farmaci": [
+          {
+            "idFarmaco": "283469",
+            "nome": "Augmentin"
+          }
+        ],
+        "idFarmacia": "287946"
+      }
     ]
   },
   {
-    "nome": "Farmacia Uguale",
-    "indirizzo": "Via Massarenti",
-    "telefono": "051 885141",
-    "email": "imogeneduke@aquafire.com",
     "id": 618855,
-    "farmacisti": [
+    "nome": "Antica Farmacia",
+    "orari": [
       {
-        "nome": "Maria",
-        "cognome": "Verdi",
-        "id": 529007,
-        "data": "24/11/1966"
+        "giorno": "lunedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
       },
       {
-        "nome": "Luca",
-        "cognome": "Rossi",
-        "id": 503693,
-        "data": "03/04/1971"
+        "giorno": "martedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
       },
       {
-        "nome": "Luca",
-        "cognome": "Verdi",
-        "id": 388789,
-        "data": "08/07/1952"
+        "giorno": "mercoledì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "giovedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "venerdì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "sabato",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "domenica",
+        "apertura": "08:00",
+        "chiusura": "12:00"
       }
     ],
+    "email": "anticafarmacia.bologna@gmail.com",
+    "posizione": [
+      {
+        "indirizzo": "Via Massarenti 9",
+        "comune": "Bologna",
+        "provincia": "Bologna"
+      }
+    ],
+    "telefono": "051 885141",
+    "totemPresente": true,
     "totem": [
       {
         "id": 216765
       }
+    ],
+    "farmacisti": [
+      {
+        "username": "c.valle",
+        "nome": "Clara",
+        "cognome": "Valle",
+        "data": "09/12/1969",
+        "id" : "2765933",
+        "bloccato": false
+      },
+      {
+        "username": "s.longhi",
+        "nome": "Sofia",
+        "cognome": "Longhi",
+        "data": "22/03/1990",
+        "id" : "9375638",
+        "bloccato": false
+      },
+      {
+        "username": "s.longhi",
+        "nome": "Sofia",
+        "cognome": "Longhi",
+        "data": "22/03/1990",
+        "id" : "9375638",
+        "bloccato": false
+      }
+    ],
+    "prenotazioni": [
+      {
+        "id": "69z15c8aa90f29ee6996f2a9",
+        "dataEOra": "26/08/2023 18:15",
+        "servita": false,
+        "prestazione": "ALTRO",
+        "farmaci": [],
+        "idFarmacia": "618855"
+      },
+      {
+        "id": "ce364f9ab99b46beafb0c6e68",
+        "dataEOra": "04/08/2023 19:00",
+        "servita": false,
+        "prestazione": "PESO",
+        "farmaci": [],
+        "idFarmacia": "618855"
+      }
     ]
   },
   {
-    "nome": "Farmacia Maggiore",
-    "indirizzo": "Via Massarenti",
-    "telefono": "051 243680",
-    "email": "jamiashley@qaboos.com",
     "id": 699697,
+    "nome": "Farmacia Maggiore",
+    "orari": [
+      {
+        "giorno": "lunedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "martedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "mercoledì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "giovedì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "venerdì",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "sabato",
+        "apertura": "08:00",
+        "chiusura": "20:00"
+      },
+      {
+        "giorno": "domenica",
+        "apertura": "08:00",
+        "chiusura": "12:00"
+      }
+    ],
+    "email": "farmaciamaggiore01@gmail.com",
+    "telefono": "051 243680",
+    "posizione": [
+      {
+        "indirizzo": "Piazza Maggiore 1",
+        "comune": "Bologna",
+        "provincia": "Bologna"
+      }
+    ],
+    "totemPresente": false,
     "farmacisti": [
       {
         "nome": "Marco",
@@ -89,9 +274,27 @@
         "data": "21/10/1967"
       }
     ],
-    "totem": [
+    "prenotazioni": [
       {
-        "id": 416946
+        "id": "d706f2d9da7644edb32adccd",
+        "dataEOra": "12/08/2023 11:45",
+        "servita": false,
+        "prestazione": "FARMACO",
+        "farmaci": [
+          {
+            "idFarmaco": "983472",
+            "nome": "Tobral Unguento 2%"
+          }
+        ],
+        "idFarmacia": "699697"
+      },
+      {
+        "id": "0b24110cf01048ec96362eade",
+        "dataEOra": "19/09/2023 14:30",
+        "servita": false,
+        "prestazione": "PRESSIONE",
+        "farmaci": [],
+        "idFarmacia": "699697"
       }
     ]
   }
