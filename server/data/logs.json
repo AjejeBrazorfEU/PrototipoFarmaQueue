@@ -1,27 +1,32 @@
 [
     {
-      "tipo": "NuovaPrenotazione",
-      "idUtente": 123456,
-      "orario": "09/07/2023 01:24"
+      "operazione": "NuovaPrenotazione",
+      "data": "09/07/2023",
+      "ora": "01:24",
+      "idUtente": "123456"
     },
     {
-        "tipo": "EliminaPrenotazione",
-        "idUtente": 123456,
-        "orario": "10/07/2023 12:59"
+      "operazione": "EliminaPrenotazione",
+      "data": "10/07/2023",
+      "ora": "12:59",
+      "idUtente": "123456"
     },
     {
-      "tipo": "NuovaPrenotazione",
-      "idUtente": 742934,
-      "orario": "14/07/2023 09:49"
+      "operazione": "NuovaPrenotazione",
+      "data": "14/07/2023",
+      "ora": "09:49",
+      "idUtente": "742934"
     },
     {
-      "tipo": "EliminaPrenotazione",
-      "idUtente": 742934,
-      "orario": "14/07/2023 16:30"
+      "operazione": "EliminaPrenotazione",
+      "data": "14/07/2023",
+      "ora": "16:30",
+      "idUtente": "742934"
     },
     {
-      "tipo": "NuovaPrenotazione",
-      "idUtente": 987654,
-      "orario": "15/07/2023 20:14"
+      "operazione": "NuovaPrenotazione",
+      "data": "15/07/2023",
+      "ora": "20:14",
+      "idUtente": 987654
     }
   ]

@@ -1,23 +1,26 @@
 [
     {
-      "nome": "Maria",
+      "username": "mario.rossi20@gmail.com",
+      "nome": "Mario",
       "cognome": "Rossi",
-      "data": "02/07/1996",
-      "email": "mercadobarton@malathion.com",
-      "id" : "742934"
+      "data": "02/07/1986",
+      "id" : "742934",
+      "bloccato": false
     },
     {
-      "nome": "Luca",
-      "cognome": "Rossi",
-      "data": "29/07/1996",
-      "email": "brownbranch@daisu.com",
-      "id" : "987654"
-    },
-    {
-      "nome": "Marco",
+      "username": "annaverdi99@gmail.com",
+      "nome": "Anna",
       "cognome": "Verdi",
-      "data": "14/06/1993",
-      "email": "simonesanford@zytrek.com",
-      "id" : "123456"
+      "data": "29/07/1992",
+      "id" : "987654",
+      "bloccato": false
+    },
+    {
+      "username": "marco.neri0@gmail.com",
+      "nome": "Marco",
+      "cognome": "Neri",
+      "data": "14/06/1973",
+      "id" : "123456",
+      "bloccato": false
     }
 ]

@@ -1,18 +1,60 @@
 [
   {
     "id": "64b25c8a144b83f26da3c99a",
-    "dataEOra": "30/08/2023 12:32",
+    "dataEOra": "30/06/2023 12:30",
     "servita": true,
     "prestazione": "PRESSIONE",
     "farmaci": [],
-    "farmacia": "Farmacia Minore"
+    "idFarmacia": "287946"
   },
   {
-    "id": "64b25c8aa90f29ee6996f2a9",
-    "dataEOra": "26/08/2023 05:08",
+    "id": "53076cff94394d6dabbd539d",
+    "dataEOra": "26/08/2023 09:00",
+    "servita": false,
+    "prestazione": "FARMACO",
+    "farmaci": [
+      {
+        "idFarmaco": "283469",
+        "nome": "Augmentin"
+      }
+    ],
+    "idFarmacia": "287946"
+  },
+  {
+    "id": "69z15c8aa90f29ee6996f2a9",
+    "dataEOra": "26/08/2023 18:15",
     "servita": false,
     "prestazione": "ALTRO",
     "farmaci": [],
-    "farmacia": "Farmacia Maggiore"
+    "idFarmacia": "618855"
+  },
+  {
+    "id": "ce364f9ab99b46beafb0c6e68",
+    "dataEOra": "04/08/2023 19:00",
+    "servita": false,
+    "prestazione": "PESO",
+    "farmaci": [],
+    "idFarmacia": "618855"
+  },
+  {
+    "id": "d706f2d9da7644edb32adccd",
+    "dataEOra": "12/08/2023 11:45",
+    "servita": false,
+    "prestazione": "FARMACO",
+    "farmaci": [
+      {
+        "idFarmaco": "983472",
+        "nome": "Tobral Unguento 2%"
+      }
+    ],
+    "idFarmacia": "699697"
+  },
+  {
+    "id": "0b24110cf01048ec96362eade",
+    "dataEOra": "19/09/2023 14:30",
+    "servita": false,
+    "prestazione": "PRESSIONE",
+    "farmaci": [],
+    "idFarmacia": "699697"
   }
 ]
