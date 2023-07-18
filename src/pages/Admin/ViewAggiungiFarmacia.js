@@ -11,17 +11,18 @@ function ViewAggiungiFarmacia() {
     orari: "",
     telefono: "",
     email: "",
-    idFarmacia: idFarmacia
+    idFarmacia: ""
   });
 
   
-  useEffect(() => {
-    if(idFarmacia !== "null"){
-    axios.get(`http://localhost:3001/homeAdmin/getFarmacia`, {params: {idFarmacia: idFarmacia}})
-      .then(res => {
-        setState({nome: res.data.nome, indirizzo: res.data.indirizzo, serviziOfferti: res.data.serviziOfferti, orari: res.data.orari, telefono: res.data.telefono, email: res.data.email});
-      })}
-  }, []);
+    useEffect(() => {
+      if(idFarmacia !== "null"){
+      axios.get(`http://localhost:3001/homeAdmin/getFarmacia`, {params: {idFarmacia: idFarmacia}})
+        .then(res => {
+          setState({nome: res.data.nome, indirizzo: res.data.indirizzo, serviziOfferti: res.data.serviziOfferti, orari: res.data.orari, telefono: res.data.telefono, email: res.data.email, idFarmacia: res.data.id});
+          //console.log(state);
+        })}
+    }, []);
   
 
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ function ViewAggiungiFarmacia() {
   };
 
   const handleSubmit = (e) => {
-    console.log(state);
     e.preventDefault();
+    console.log(state);
     axios.get(`http://localhost:3001/homeAdmin/nuovaFarmacia`, {params:state})
     .then(res => { 
       if(res.status === 200){
@@ -45,6 +46,9 @@ function ViewAggiungiFarmacia() {
       }else{
           alert("Errore durante l'aggiunta della farmacia");
       }
+    }).catch(err => {
+      console.log(err);
+      alert("Errore durante l'aggiunta della farmacia");
     });
   };
 

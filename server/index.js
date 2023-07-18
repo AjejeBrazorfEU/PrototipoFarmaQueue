@@ -106,8 +106,10 @@ app.get('/homeAdmin/getFarmacia',   (req, res) => {
 app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
     const query = req.query;
     // controllo se esiste gia la farmacia
-    const farmacia = farmacie.find(f => f.nome === query.nome && f.indirizzo === query.indirizzo);
+    const farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
+    console.log(farmacia);
     if(farmacia) {
+      console.log("aggiorno la farmacia");
       // allora la aggiorno
       farmacia.email = query.email;
       farmacia.telefono = query.telefono;
@@ -127,7 +129,7 @@ app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
           email: query.email,
           telefono: query.telefono
       }
-      console.log(farmacia);
+      //console.log(farmacia);
       farmacie.push(farmacia);
       logs.push({
           tipo: "NuovaFarmacia",
