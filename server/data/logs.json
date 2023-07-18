@@ -1,0 +1,27 @@
+[
+    {
+      "tipo": "NuovaPrenotazione",
+      "idUtente": 123456,
+      "orario": "09/07/2023 01:24"
+    },
+    {
+        "tipo": "EliminaPrenotazione",
+        "idUtente": 123456,
+        "orario": "10/07/2023 12:59"
+    },
+    {
+      "tipo": "NuovaPrenotazione",
+      "idUtente": 742934,
+      "orario": "14/07/2023 09:49"
+    },
+    {
+      "tipo": "EliminaPrenotazione",
+      "idUtente": 742934,
+      "orario": "14/07/2023 16:30"
+    },
+    {
+      "tipo": "NuovaPrenotazione",
+      "idUtente": 987654,
+      "orario": "15/07/2023 20:14"
+    }
+  ]

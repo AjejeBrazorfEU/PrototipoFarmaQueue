@@ -1,57 +1,17 @@
 [
   {
     "id": "64b25c8a144b83f26da3c99a",
-    "dataEOra": "2023-08-30 12:32",
+    "dataEOra": "30/08/2023 12:32",
     "servita": true,
-    "prestazione": "PRESSIONE",
-    "farmaci": [],
-    "farmacia": "Farmacia minore"
-  },
-  {
-    "id": "64b25c8aa02c818cb980e82b",
-    "dataEOra": "2023-08-01 10:01",
-    "servita": false,
     "prestazione": "PRESSIONE",
     "farmaci": [],
     "farmacia": "Farmacia minore"
   },
   {
     "id": "64b25c8aa90f29ee6996f2a9",
-    "dataEOra": "2023-08-26 05:08",
+    "dataEOra": "26/08/2023 05:08",
     "servita": false,
     "prestazione": "ALTRO",
-    "farmaci": [],
-    "farmacia": "Farmacia maggiore"
-  },
-  {
-    "id": "64b25c8a89ee9427ba464387",
-    "dataEOra": "2023-07-21 08:09",
-    "servita": false,
-    "prestazione": "PRESSIONE",
-    "farmaci": [],
-    "farmacia": "Farmacia minore"
-  },
-  {
-    "id": "64b25c8af1bf0e7cf801824e",
-    "dataEOra": "2023-08-14 02:53",
-    "servita": false,
-    "prestazione": "PRESSIONE",
-    "farmaci": [],
-    "farmacia": "Farmacia maggiore"
-  },
-  {
-    "id": "64b25c8a22dfa18c66e16f30",
-    "dataEOra": "2023-08-19 12:21",
-    "servita": true,
-    "prestazione": "FARMACO",
-    "farmaci": [],
-    "farmacia": "Farmacia maggiore"
-  },
-  {
-    "id": "64b25c8a3f0bd78f9bfb70dd",
-    "dataEOra": "2023-07-19 06:51",
-    "servita": false,
-    "prestazione": "PESO",
     "farmaci": [],
     "farmacia": "Farmacia maggiore"
   }

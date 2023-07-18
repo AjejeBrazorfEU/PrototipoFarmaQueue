@@ -1,0 +1,98 @@
+[
+  {
+    "nome": "Farmacia Minore",
+    "indirizzo": "Via del Risorgimento",
+    "telefono": "051 718272",
+    "email": "woodsfreeman@singavera.com",
+    "id": 287946,
+    "farmacisti": [
+      {
+        "nome": "Luca",
+        "cognome": "Verdi",
+        "id": 876730,
+        "data": "17/08/1958"
+      },
+      {
+        "nome": "Luca",
+        "cognome": "Verdi",
+        "id": 717363,
+        "data": "19/08/1993"
+      },
+      {
+        "nome": "Maria",
+        "cognome": "Verdi",
+        "id": 834072,
+        "data": "09/08/1983"
+      }
+    ],
+    "totem": [
+      {
+        "id": 864460
+      }
+    ]
+  },
+  {
+    "nome": "Farmacia Minore",
+    "indirizzo": "Via Massarenti",
+    "telefono": "051 885141",
+    "email": "imogeneduke@aquafire.com",
+    "id": 618855,
+    "farmacisti": [
+      {
+        "nome": "Maria",
+        "cognome": "Verdi",
+        "id": 529007,
+        "data": "24/11/1966"
+      },
+      {
+        "nome": "Luca",
+        "cognome": "Rossi",
+        "id": 503693,
+        "data": "03/04/1971"
+      },
+      {
+        "nome": "Luca",
+        "cognome": "Verdi",
+        "id": 388789,
+        "data": "08/07/1952"
+      }
+    ],
+    "totem": [
+      {
+        "id": 216765
+      }
+    ]
+  },
+  {
+    "nome": "Farmacia Maggiore",
+    "indirizzo": "Via Massarenti",
+    "telefono": "051 243680",
+    "email": "jamiashley@qaboos.com",
+    "id": 699697,
+    "farmacisti": [
+      {
+        "nome": "Marco",
+        "cognome": "Rossi",
+        "id": 511276,
+        "data": "08/12/1950"
+      },
+      {
+        "nome": "Marco",
+        "cognome": "Rossi",
+        "id": 335635,
+        "data": "21/08/1968"
+      },
+      {
+        "nome": "Maria",
+        "cognome": "Verdi",
+        "id": 205538,
+        "data": "21/10/1967"
+      }
+    ],
+    "totem": [
+      {
+        "id": 416946
+      }
+    ]
+  }
+]
