@@ -107,6 +107,25 @@ app.get('/homeAdmin/eliminaFarmacia', (req, res) => {
     }
 });
 
+app.get('/homeAdmin/eliminaFarmacista', (req, res) => {
+    const idFarmacista = parseInt(req.query.idFarmacista);
+    for(let i = 0; i < farmacie.length; i++) {
+      const farmacia = farmacie[i];
+      const farmacista = farmacia.farmacisti.find(f => f.id === idFarmacista);
+      if(farmacista) {
+        farmacia.farmacisti = farmacia.farmacisti.filter(f => f.id !== idFarmacista);
+        logs.push({
+          tipo: "EliminaFarmacista",
+          orario: moment().format("DD/MM/YYYY HH:mm"),
+          idUtente: 'ADMIN',
+      });
+        res.sendStatus(200);
+        return;
+      }
+    }
+    res.sendStatus(404);
+});
+
 app.get('/homeAdmin/getUtenti', (req, res) => {
     res.send(utenti);
 })
@@ -124,6 +143,37 @@ app.get('/homeAdmin/getFarmacisti', (req, res) => {
 app.get('/homeAdmin/getLogs', (req, res) => {
   res.send(logs);
 })
+
+app.get('/homeFarmacista/getPrenotazioni', (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.send([]);
+    }else{
+      res.send(prenotazioni.filter(p => p.farmacia === farmacia.nome));
+    }
+})
+
+app.get('/homeFarmcista/avantiUnAltro', (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.sendStatus(404);
+    }else{
+      const prenotazione = prenotazioni.find(p => p.farmacia === farmacia.nome);
+      if(!prenotazione) {
+        res.sendStatus(404);
+      }else{
+        prenotazioni = prenotazioni.filter(p => p.id !== prenotazione.id);
+        logs.push({
+          tipo: "AvantiUnAltro",
+          orario: moment().format("DD/MM/YYYY HH:mm"),
+          idUtente: 'FARMACISTA',
+      });
+        res.sendStatus(200);
+      }
+    }
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
