@@ -76,8 +76,10 @@ app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
         id: farmacie.length + 1,
         nome: query.nome,
         indirizzo: query.indirizzo,
-        farmacisti: []
-        }
+        farmacisti: [],
+        email: query.email,
+        telefono: query.telefono
+    }
     console.log(farmacia);
     farmacie.push(farmacia);
     logs.push({
@@ -157,8 +159,6 @@ app.get('/homeAdmin/aggiungiFarmacista', (req, res) => {
     });
 });
 
-
-
 app.get('/homeAdmin/getLogs', (req, res) => {
   res.send(logs);
 })
@@ -188,6 +188,19 @@ app.get('/homeFarmacista/avantiUnAltro', (req, res) => {
       });
         res.send(prenotazioni.filter(p => p.farmacia === farmacia.nome));
     }
+});
+
+app.get('/homeTotem/nextPostoLibero', (req, res) => {
+    const query = req.query;
+    const farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
+    const prenotazioni = prenotazioni.filter(p => p.farmacia === farmacia.nome);
+    const orari = prenotazioni.map(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm"));
+
+    const orariOggi = prenotazioni.map(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm").format("DD/MM/YYYY") === moment().format("DD/MM/YYYY"));
+
+    
+
+
 });
 
 app.listen(port, () => {

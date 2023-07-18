@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function HomeTotem() {
     const [state, setState] = useState({
-        prestazione: "PRESSIONE",
+        prestazione: "STATO",
         dataEOra: "",
     });
     
@@ -15,20 +15,23 @@ export default function HomeTotem() {
         });
     };
 
-    useEffect(() => {
-    axios.get(`http://localhost:3001/homeTotem/nextPostoLibero`,{ params: { idFarmacia: 699697 } })
+    const getPostoLibero = () => {
+        axios.get(`http://localhost:3001/homeTotem/nextPostoLibero`,{ params: { idFarmacia: 699697 } })
         .then(res => {
             setState({
                 ...state,
                 dataEOra: res.dataEOra,
             });
         })
+    }
+
+    useEffect(() => {
+        getPostoLibero();
     }, []);
     
 
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         console.log(state);
-        e.preventDefault();
 
         axios.get(`http://localhost:3001/homeTotem/prenotaPosto`, {params:state})
         .then(res => {
@@ -37,6 +40,7 @@ export default function HomeTotem() {
             }else{
                 alert("Errore");
             }
+            getPostoLibero();
         });
     };
 
@@ -44,15 +48,18 @@ export default function HomeTotem() {
         <div>
             <h1>Buongiorno, da questo totem si può prenotare il prossimo posto libero in fila</h1>
             <h2>Prossimo posto libero</h2>
-            {/* {dataEOra} */}
+            {state.dataEOra}
             <h2>Seleziona la prestazione</h2>
-            <select name="prestazione" onChange={handleChange}>
+            <select name="prestazione" onChange={handleChange} value={state.prestazione}>
                 <option value="PRESSIONE">Pressione</option>
                 <option value="PESO">Peso</option>
                 <option value="FARMACO">Farmaco</option>
                 <option value="ALTRO">Altro</option>
             </select>
-            <button >PRENOTA POSTO</button>
+
+            <button onClick={handleSubmit}>PRENOTA POSTO</button>
+
+
         </div>
 
     )
