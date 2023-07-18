@@ -7,6 +7,7 @@ function HomeGestioneFarmacie() {
   const { idFarmacia } = useParams();
   const [farmacie, setFarmacie] = useState([]);
   const navigate = useNavigate();
+
     
   const nuovaFarmacia = (destination) => {
       navigate(destination);
@@ -38,7 +39,7 @@ function HomeGestioneFarmacie() {
       <div className="prenotazioniUtente">
           {farmacie.map((farmacia) => (
               <div className="cardPrenotazione">
-                  <h2>{farmacia.nome}</h2>
+                  <h2>{farmacia.nome} value={state.nome}</h2>
                   <h3>{farmacia.indirizzo}</h3>
                   <p>Telefono</p>
                   <h3>{farmacia.telefono}</h3>
@@ -55,7 +56,7 @@ function HomeGestioneFarmacie() {
                           <FaLaptopMedical size="50"/>
                       </div>
                     </div>
-                    <div className="cardBottone" onClick={() => nuovaFarmacia("/viewAggiungiFarmacia")}>
+                    <div className="cardBottone" onClick={() => nuovaFarmacia("/viewAggiungiFarmacia/"+farmacia.id)}>
                       <div className="icona">
                           <FaRegEdit size="50"/>
                       </div>
@@ -70,7 +71,7 @@ function HomeGestioneFarmacie() {
           ))}
       </div>
 
-      <button className="nuovoButton" onClick={() => nuovaFarmacia("/viewAggiungiFarmacia")}>Nuova farmacia</button>
+      <button className="nuovoButton" onClick={() => nuovaFarmacia("/viewAggiungiFarmacia/"+"null")}>Nuova farmacia</button>
     </div>
   );
 }

@@ -54,7 +54,7 @@ function App() {
         <Route path='/homeGestioneFarmacisti/:idFarmacia' element={<HomeGestioneFarmacisti/>} />
         <Route path='/homeGestioneTotem' element={<HomeGestioneTotem/>} />
         <Route path='/homeGestioneUtenti' element={<HomeGestioneUtenti/>} />
-        <Route path='/viewAggiungiFarmacia' element={<ViewAggiungiFarmacia/>} />
+        <Route path='/viewAggiungiFarmacia/:idFarmacia' element={<ViewAggiungiFarmacia/>} />
         <Route path='/viewAggiungiFarmacista/:idFarmacia' element={<ViewAggiungiFarmacista/>} />
         <Route path='/viewAggiungiTotem' element={<ViewAggiungiTotem/>} />
         <Route path='/viewRegistrazioneUtenteAdmin' element={<ViewRegistrazioneUtenteAdmin/>} />

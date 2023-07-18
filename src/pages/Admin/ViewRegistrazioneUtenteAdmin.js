@@ -27,7 +27,7 @@ function ViewRegistrazioneUtenteAdmin() {
   const handleSubmit = (e) => {
     console.log(state);
     e.preventDefault();
-    axios.get(`http://localhost:3001/homeAdmin/homeGestioneUtenti`, {params:state})
+    axios.get(`http://localhost:3001/homeAdmin/nuovoUtente`, {params:state})
     .then(res => { 
       if(res.status === 200){
           alert("Utente aggiunto con successo");

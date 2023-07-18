@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate,useParams } from "react-router-dom";
 
 function ViewAggiungiFarmacia() {
-  const navigate = useNavigate();
+  const { idFarmacia } = useParams();
   const [state, setState] = useState({
     nome: "",
     indirizzo: "",
@@ -12,6 +12,17 @@ function ViewAggiungiFarmacia() {
     telefono: "",
     email: ""
   });
+
+  if(idFarmacia !== "null"){
+    useEffect(() => {
+      axios.get(`http://localhost:3001/homeAdmin/getFarmacia`, {params: {idFarmacia: idFarmacia}})
+        .then(res => {
+          setState({nome: res.data.nome, indirizzo: res.data.indirizzo, serviziOfferti: res.data.serviziOfferti, orari: res.data.orari, telefono: res.data.telefono, email: res.data.email});
+        })
+    }, []);
+  }
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
