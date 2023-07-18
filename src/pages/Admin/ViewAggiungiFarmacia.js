@@ -10,7 +10,8 @@ function ViewAggiungiFarmacia() {
     serviziOfferti: "",
     orari: "",
     telefono: "",
-    email: ""
+    email: "",
+    idFarmacia: idFarmacia
   });
 
   
