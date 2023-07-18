@@ -22,10 +22,10 @@ function HomeGestioneUtenti() {
         axios.get(`http://localhost:3001/homeAdmin/eliminaUtente`, {params: {email: emailUtente}})
             .then(res => {
                 if(res.status == 200){
-                    alert("Farmacista eliminat* con successo");
+                    alert("Utente eliminat* con successo");
                     setUtenti(utenti.filter((utente) => utente.email != emailUtente));
                 }else{
-                    alert("Errore durante l'eliminazione della farmacista");
+                    alert("Errore durante l'eliminazione dell'utente");
                 }
             })
       }
