@@ -24,13 +24,13 @@ function ViewAggiungiFarmacista() {
     e.preventDefault();
     axios.get(`http://localhost:3001/homeAdmin/aggiungiFarmacista`, {params:state})
     .then(res => { 
-      if(res.status == 200){
+      if(res.status === 200){
           alert("Farmacista aggiunto con successo");
                 navigate('/homeGestioneFarmacisti/'+idFarmacia);
       }else{
           alert("Errore durante l'aggiunta del farmacista");
       }
-                    });
+    });
   };
 
   const navigate = useNavigate();
