@@ -32,7 +32,7 @@ function HomeGestioneUtenti() {
     return (
         <div className="container">
             <h1>Gestione Utenti</h1>
-            <div>
+            <div className="prenotazioniUtente">
             {utenti.map((utente) => (
                 <div className="cardPrenotazione">
                     <h2>{utente.nome} {utente.cognome}</h2>
