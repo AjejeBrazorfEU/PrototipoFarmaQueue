@@ -105,26 +105,39 @@ app.get('/homeAdmin/getFarmacia',   (req, res) => {
 
 app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
     const query = req.query;
-    const farmacia = {
-        id: farmacie.length + 1,
-        nome: query.nome,
-        indirizzo: query.indirizzo,
-        farmacisti: [],
-        email: query.email,
-        telefono: query.telefono
-    }
-    console.log(farmacia);
-    farmacie.push(farmacia);
-    logs.push({
-        tipo: "NuovaFarmacia",
+    // controllo se esiste gia la farmacia
+    const farmacia = farmacie.find(f => f.nome === query.nome && f.indirizzo === query.indirizzo);
+    if(farmacia) {
+      // allora la aggiorno
+      farmacia.email = query.email;
+      farmacia.telefono = query.telefono;
+      farmacia.indirizzo = query.indirizzo;
+      farmacia.nome = query.nome;
+      logs.push({
+        tipo: "AggiornaFarmacia",
         orario: moment().format("DD/MM/YYYY HH:mm"),
         idUtente: 'ADMIN',
-    });
-
+      });
+    }else{
+      const farmacia = {
+          id: farmacie.length + 1,
+          nome: query.nome,
+          indirizzo: query.indirizzo,
+          farmacisti: [],
+          email: query.email,
+          telefono: query.telefono
+      }
+      console.log(farmacia);
+      farmacie.push(farmacia);
+      logs.push({
+          tipo: "NuovaFarmacia",
+          orario: moment().format("DD/MM/YYYY HH:mm"),
+          idUtente: 'ADMIN',
+      });
+    }
     // sending ok message 200
     res.sendStatus(200);
-  }
-);
+  });
 
 app.get('/homeAdmin/eliminaFarmacia', (req, res) => {
     const idFarmacia = parseInt(req.query.idFarmacia);
