@@ -55,7 +55,7 @@ function App() {
         <Route path='/homeGestioneTotem' element={<HomeGestioneTotem/>} />
         <Route path='/homeGestioneUtenti' element={<HomeGestioneUtenti/>} />
         <Route path='/viewAggiungiFarmacia' element={<ViewAggiungiFarmacia/>} />
-        <Route path='/viewAggiungiFarmacista' element={<ViewAggiungiFarmacista/>} />
+        <Route path='/viewAggiungiFarmacista/:idFarmacia' element={<ViewAggiungiFarmacista/>} />
         <Route path='/viewAggiungiTotem' element={<ViewAggiungiTotem/>} />
         <Route path='/viewRegistrazioneUtenteAdmin' element={<ViewRegistrazioneUtenteAdmin/>} />
         <Route path='/viewVisualizzaLog' element={<ViewVisualizzaLog/>} />

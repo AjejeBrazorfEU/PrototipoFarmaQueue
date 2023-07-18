@@ -4,7 +4,7 @@ import { useNavigate,useParams } from "react-router-dom";
 import { FaUserMd, FaLaptopMedical, FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 function HomeGestioneFarmacie() {
-    const { idFarmacia } = useParams();
+  const { idFarmacia } = useParams();
   const [farmacie, setFarmacie] = useState([]);
   const navigate = useNavigate();
     
