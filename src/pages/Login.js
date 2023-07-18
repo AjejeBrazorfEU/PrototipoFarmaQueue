@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { roles,LoginUser } from "./Mock";
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Login({setToken}){
+    const navigate = useNavigate();
+
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,7 +20,15 @@ function Login({setToken}){
         const res = LoginUser(username, password);
         if(res !== roles.unregistered){
             setToken(res);
-            console.log(res);
+            if(res === roles.admin){
+                navigate('/homeAdmin');
+            }else if(res === roles.utente){
+                navigate('/homeUtente');
+            }else if(res === roles.farmacista){
+                navigate('/homeFarmacista');
+            }else if(res === roles.totem){
+                navigate('/homeTotem');
+            }
         }else{
             alert("Unregistered");
         }

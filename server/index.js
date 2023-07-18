@@ -38,12 +38,11 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/homeUtente/getPrenotazioni', (req, res) => {
-    let listaPrenotazioni = [];
+    let listaPrenotazioni = prenotazioni.sort(() => Math.random() - 0.5);
+    /*listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
     listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
-    listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
-    listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);
-    res.send(listaPrenotazioni);
-
+    listaPrenotazioni.push(prenotazioni[Math.floor(Math.random() * prenotazioni.length)]);*/
+    res.send(listaPrenotazioni.slice(0, 3));
 })
 
 app.listen(port, () => {

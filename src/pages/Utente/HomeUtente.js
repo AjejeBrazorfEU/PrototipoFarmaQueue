@@ -1,12 +1,14 @@
-import Prenotazione from "../classes/Prenotazione";
+import Prenotazione from "../../classes/Prenotazione";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function HomeUtente() {
     const [prenotazioni, setPrenotazioni] = useState([]);
+    const navigate = useNavigate();
     
     const nuovaPrenotazione = () => {
-        
+        navigate('/viewNuovaPrenotazioneUtente');
     }
 
     useEffect(() => {
