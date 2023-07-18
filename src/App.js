@@ -6,6 +6,15 @@ import HomeUtente from './pages/Utente/HomeUtente';
 import HomeAdmin from './pages/Admin/HomeAdmin';
 import HomeFarmacista from './pages/Farmacista/HomeFarmacista';
 import HomeTotem from './pages/Totem/HomeTotem';
+import HomeGestioneFarmacisti from './pages/Admin/HomeGestioneFarmacisti';
+import HomeGestioneFarmacie from './pages/Admin/HomeGestioneFarmacie';
+import HomeGestioneTotem from './pages/Admin/HomeGestioneTotem';
+import HomeGestioneUtenti from './pages/Admin/HomeGestioneUtenti';
+import ViewAggiungiFarmacia from './pages/Admin/ViewAggiungiFarmacia';
+import ViewAggiungiFarmacista from './pages/Admin/ViewAggiungiFarmacista';
+import ViewAggiungiTotem from './pages/Admin/ViewAggiungiTotem';
+import ViewRegistrazioneUtenteAdmin from './pages/Admin/ViewRegistrazioneUtenteAdmin';
+import ViewVisualizzaLog from './pages/Admin/ViewVisualizzaLog';
 import { roles } from './pages/Mock';
 import Header from './pages/Header';
 import { Routes, Route, useNavigate } from 'react-router-dom';
@@ -19,16 +28,6 @@ function App() {
 
   if(token === undefined || token === null || token === roles.unregistered) {
     navigate('/');
-  } else if(token === roles.admin) {
-    screen = <HomeAdmin />
-  } else if(token === roles.utente) {
-    screen = <HomeUtente />
-  } else if(token === roles.farmacista) {
-    screen = <HomeFarmacista />
-  } else if(token === roles.totem) {
-    screen = <HomeTotem />
-  } else {
-    screen = <Login setToken={setToken} />
   }
 
   return(
@@ -42,6 +41,15 @@ function App() {
         <Route path='/homeFarmacista' element={<HomeFarmacista/>} />
         <Route path='/homeTotem' element={<HomeTotem/>} />
         <Route path='/viewNuovaPrenotazioneUtente' element={<ViewNuovaPrenotazioneUtente/>} />
+        <Route path='/homeGestioneFarmacie' element={<HomeGestioneFarmacie/>} />
+        <Route path='/homeGestioneFarmacisti' element={<HomeGestioneFarmacisti/>} />
+        <Route path='/homeGestioneTotem' element={<HomeGestioneTotem/>} />
+        <Route path='/homeGestioneUtenti' element={<HomeGestioneUtenti/>} />
+        <Route path='/viewAggiungiFarmacia' element={<ViewAggiungiFarmacia/>} />
+        <Route path='/viewAggiungiFarmacista' element={<ViewAggiungiFarmacista/>} />
+        <Route path='/viewAggiungiTotem' element={<ViewAggiungiTotem/>} />
+        <Route path='/viewRegistrazioneUtenteAdmin' element={<ViewRegistrazioneUtenteAdmin/>} />
+        <Route path='/viewVisualizzaLog' element={<ViewVisualizzaLog/>} />
         <Route path='*' element={<p>404</p>} />
       </Routes>
     </div>
