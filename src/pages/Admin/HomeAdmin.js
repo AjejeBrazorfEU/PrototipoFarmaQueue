@@ -9,7 +9,7 @@ export default function HomeAdmin() {
     };
 
     return (
-        <div>
+        <div className="container">
             <div>
                 <h1>HomeAdmin</h1>
             </div>
