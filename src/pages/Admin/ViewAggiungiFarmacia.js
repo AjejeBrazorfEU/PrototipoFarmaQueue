@@ -10,17 +10,19 @@ function ViewAggiungiFarmacia() {
     serviziOfferti: "",
     orari: "",
     telefono: "",
-    email: ""
+    email: "",
+    idFarmacia: idFarmacia
   });
 
-  if(idFarmacia !== "null"){
+  
     useEffect(() => {
+      if(idFarmacia !== "null"){
       axios.get(`http://localhost:3001/homeAdmin/getFarmacia`, {params: {idFarmacia: idFarmacia}})
         .then(res => {
           setState({nome: res.data.nome, indirizzo: res.data.indirizzo, serviziOfferti: res.data.serviziOfferti, orari: res.data.orari, telefono: res.data.telefono, email: res.data.email});
-        })
+        })}
     }, []);
-  }
+  
 
   const navigate = useNavigate();
 
