@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Login from './pages/Login';
 import HomeUtente from './pages/Utente/HomeUtente';
 import HomeAdmin from './pages/Admin/HomeAdmin';
@@ -23,18 +23,22 @@ import ViewNuovaPrenotazioneUtente from './pages/Utente/ViewNuovaPrenotazioneUte
 
 function App() {
   const navigate = useNavigate();
-  const [token, setToken] = useState();
-  let screen;
+  const [token, setToken] = useState(null);
 
-  if(token === undefined || token === null || token === roles.unregistered) {
-    navigate('/');
-  }
+  
 
   const logout = () => {
-    //setToken(null);
     navigate('/');
   }
 
+  useEffect(() => {
+    if(token === undefined || token === null || token === roles.unregistered) {
+      navigate('/');
+    }
+  }, []);
+
+
+  console.log(token);
   return(
     <div className='Container'>
       <Header Logout={logout}/>
