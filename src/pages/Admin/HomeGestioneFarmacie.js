@@ -34,7 +34,7 @@ function HomeGestioneFarmacie() {
 
   return (
     <div className='container'>
-      <h1>Gestione farmacie</h1>
+      <h1>Gestione Farmacie</h1>
       <div className="prenotazioniUtente">
           {farmacie.map((farmacia) => (
               <div className="cardPrenotazione">
@@ -50,7 +50,7 @@ function HomeGestioneFarmacie() {
                           <FaUserMd size="50"/>
                       </div>
                     </div>
-                    <div className="cardBottone" onClick={() => nuovaFarmacia("/HomeGestioneTotem")}>
+                    <div className="cardBottone" onClick={() => nuovaFarmacia("/HomeGestioneTotem/"+farmacia.id)}>
                       <div className="icona">
                           <FaLaptopMedical size="50"/>
                       </div>
