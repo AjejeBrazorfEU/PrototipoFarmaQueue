@@ -54,7 +54,7 @@ export default function HomeTotem() {
                 <option value="ALTRO">Altro</option>
             </select>
 
-            <button onClick={}>PRENOTA POSTO</button>
+            <button>PRENOTA POSTO</button>
 
 
         </div>
