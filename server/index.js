@@ -181,6 +181,7 @@ app.get('/homeAdmin/nuovoUtente', (req, res) => {
         orario: moment().format("DD/MM/YYYY HH:mm"),
         idUtente: 'ADMIN',
     });
+    res.sendStatus(200);
   }
 );
 
