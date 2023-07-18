@@ -70,6 +70,43 @@ app.get('/homeAdmin/getFarmacie', (req, res) => {
     res.send(farmacie);
 })
 
+app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
+    const query = req.query;
+    const farmacia = {
+        id: farmacie.length + 1,
+        nome: query.nome,
+        indirizzo: query.indirizzo,
+        farmacisti: []
+        }
+    console.log(farmacia);
+    farmacie.push(farmacia);
+    logs.push({
+        tipo: "NuovaFarmacia",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+
+    // sending ok message 200
+    res.sendStatus(200);
+  }
+);
+
+app.get('/homeAdmin/eliminaFarmacia', (req, res) => {
+    const idFarmacia = parseInt(req.query.idFarmacia);
+    const farmacia = farmacie.find(f => f.id === idFarmacia);
+    if(!farmacia) {
+      res.sendStatus(404);
+    }else{
+      farmacie = farmacie.filter(f => f.id !== idFarmacia);
+      logs.push({
+        tipo: "EliminaFarmacia",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+      res.sendStatus(200);
+    }
+});
+
 app.get('/homeAdmin/getUtenti', (req, res) => {
     res.send(utenti);
 })

@@ -12,6 +12,19 @@ function HomeGestioneFarmacie() {
       navigate(destination);
   }
 
+  const eliminaFarmacia = (idFarmacia) => {
+    axios.get(`http://localhost:3001/homeAdmin/eliminaFarmacia`, {params: {idFarmacia: idFarmacia}})
+        .then(res => {
+            if(res.status == 200){
+                alert("Farmacia eliminata con successo");
+                setFarmacie(farmacie.filter((farmacia) => farmacia.id != idFarmacia));
+            }else{
+                alert("Errore durante l'eliminazione della farmacia");
+            }
+        })
+  }
+
+
   useEffect(() => {
     axios.get(`http://localhost:3001/homeAdmin/getFarmacie`)
       .then(res => {
@@ -47,7 +60,7 @@ function HomeGestioneFarmacie() {
                           <FaRegEdit size="50"/>
                       </div>
                     </div>
-                    <div className="cardBottone lastButton" >
+                    <div className="cardBottone lastButton" onClick={() => eliminaFarmacia(farmacia.id)}>
                       <div className="icona">
                           <FaRegTrashAlt size="50"/>
                       </div>
@@ -57,7 +70,7 @@ function HomeGestioneFarmacie() {
           ))}
       </div>
 
-      <button className="nuovoButton" onClick={() => nuovaFarmacia()}>Nuova farmacia</button>
+      <button className="nuovoButton" onClick={() => nuovaFarmacia("/viewAggiungiFarmacia")}>Nuova farmacia</button>
     </div>
   );
 }
