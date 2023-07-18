@@ -5,7 +5,7 @@
     "servita": true,
     "prestazione": "PRESSIONE",
     "farmaci": [],
-    "farmacia": "Farmacia minore"
+    "farmacia": "Farmacia Minore"
   },
   {
     "id": "64b25c8aa90f29ee6996f2a9",
@@ -13,6 +13,6 @@
     "servita": false,
     "prestazione": "ALTRO",
     "farmaci": [],
-    "farmacia": "Farmacia maggiore"
+    "farmacia": "Farmacia Maggiore"
   }
 ]
