@@ -153,6 +153,42 @@ app.get('/homeAdmin/getUtenti', (req, res) => {
     res.send(utenti);
 })
 
+app.get('/homeAdmin/nuovoUtente', (req, res) => {
+    const query = req.query;
+    const utente = {
+        id: utenti.length + 1,
+        nome: query.nome,
+        cognome: query.cognome,
+        data: query.data,
+        email: query.email,
+    }
+    console.log(utente);
+    utenti.push(utente);
+    logs.push({
+        tipo: "NuovoUtente",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+  }
+);
+
+app.get('/homeAdmin/eliminaUtente', (req, res) => {
+    const email = req.query.email;
+    const utente = utenti.find(u => u.email === email);
+    if(!utente) {
+      res.sendStatus(404);
+    }else{
+      utenti = utenti.filter(u => u.email !== email);
+      logs.push({
+        tipo: "EliminaUtente",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: 'ADMIN',
+    });
+
+      res.sendStatus(200);
+    }
+});
+        
 app.get('/homeAdmin/getFarmacisti', (req, res) => {
     const idFarmacia = parseInt(req.query.idFarmacia);
     const farmacia = farmacie.find(f => f.id === idFarmacia);
