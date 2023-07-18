@@ -30,9 +30,14 @@ function App() {
     navigate('/');
   }
 
+  const logout = () => {
+    //setToken(null);
+    navigate('/');
+  }
+
   return(
     <div className='Container'>
-      <Header />
+      <Header Logout={logout}/>
 
       <Routes>
         <Route path='/' element={<Login setToken={setToken}/>} />
