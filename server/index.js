@@ -3,6 +3,7 @@
 const utils = require('./Utils');
 const roles = utils.roles;
 const http = require("http");
+var moment = require('moment'); // require
 
 const express = require('express')
 const app = express()
@@ -20,7 +21,6 @@ let prenotazioni = require('./data/prenotazioni.json');
 let farmacie = require('./data/farmacie.json');
 let utenti = require('./data/utenti.json');
 let logs = require('./data/logs.json');
-const { log } = require('console');
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -47,17 +47,17 @@ app.get('/homeUtente/getPrenotazioni', (req, res) => {
 
 app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
     const query = req.query;
-    let dataStringa = new query.dataEOra;
     const prenotazione = {
         id: prenotazioni.length + 1,
         farmacia: query.farmacia,
         dataEOra: query.dataEOra,
         prestazione: query.prestazione
         }
+    console.log(prenotazione);
     prenotazioni.push(prenotazione);
     logs.push({
-        id: logs.length + 1,
-        dataEOra: moment.format("DD/MM/YYYY HH:mm"),
+        tipo: "NuovaPrenotazione",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
         idUtente: '123456',
     });
 
