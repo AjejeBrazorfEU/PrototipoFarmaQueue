@@ -1,18 +1,20 @@
 [
   {
     "id": "64b25c8a144b83f26da3c99a",
-    "dataEOra": "30/08/2023 12:32",
+    "dataEOra": "30/08/2023 12:30",
     "servita": true,
     "prestazione": "PRESSIONE",
     "farmaci": [],
-    "farmacia": "Farmacia Minore"
+    "farmacia": "Farmacia Minore",
+    "idUtente": "123456"
   },
   {
     "id": "64b25c8aa90f29ee6996f2a9",
-    "dataEOra": "26/08/2023 05:08",
+    "dataEOra": "26/08/2023 15:00",
     "servita": false,
     "prestazione": "ALTRO",
     "farmaci": [],
-    "farmacia": "Farmacia Maggiore"
+    "farmacia": "Farmacia Maggiore",
+    "idUtente": "123456"
   }
 ]

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 function ViewNuovaPrenotazioneUtente() {
 
@@ -10,8 +11,8 @@ function ViewNuovaPrenotazioneUtente() {
     const [dataEOra, setDataEOra] = useState("");
 
     const [state, setState] = useState({
-        farmacia: "",
-        dataEOra: "",
+        farmacia: "Farmacia Maggiore",
+        dataEOra: new Date(),
         prestazione: "PRESSIONE",
         farmaci: ""
       });
@@ -33,7 +34,11 @@ function ViewNuovaPrenotazioneUtente() {
     const handleSubmit = (e) => {
         console.log(state);
         e.preventDefault();
-        axios.get(`http://localhost:3001/homeUtente/nuovaPrenotazione`, {params:state})
+        const dataNuova = moment(state.dataEOra, "YYYY-MM-DDTHH:mm").format("DD/MM/YYYY HH:mm");
+        console.log(dataNuova);
+        const stato = state;
+        stato.dataEOra = dataNuova;
+        axios.get(`http://localhost:3001/homeUtente/nuovaPrenotazione`, {params:stato})
         .then(res => { 
                     alert("Prenotazione effettuata");
                     navigate('/homeUtente');
@@ -48,7 +53,10 @@ function ViewNuovaPrenotazioneUtente() {
         <form className="form" onSubmit={e => handleSubmit(e)}>
           <div className="campoForm">
             <h4>Farmacia</h4>
-            <input type="text" name="farmacia" onChange={handleInputChange} value={state.farmacia}/>
+            <select name="farmacia" onChange={handleInputChange} value={state.farmacia}>
+                <option value="Farmacia Maggiore">Farmacia Maggiore</option>
+                <option value="Farmacia Minore">Farmacia Minore</option>
+            </select>
           </div>
           <div className="campoForm">
             <h4>Data e Ora</h4>

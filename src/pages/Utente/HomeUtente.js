@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { FaUserMd, FaLaptopMedical, FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 export default function HomeUtente() {
     const [prenotazioni, setPrenotazioni] = useState([]);
@@ -8,6 +9,17 @@ export default function HomeUtente() {
     
     const nuovaPrenotazione = () => {
         navigate('/viewNuovaPrenotazioneUtente');
+    }
+
+    const eliminaPrenotazione = (prenotazione) => {
+        axios.get(`http://localhost:3001/homeUtente/eliminaPrenotazione`, {params: prenotazione})
+        .then(res => {
+            alert("Prenotazione eliminata con successo");
+            axios.get(`http://localhost:3001/homeUtente/getPrenotazioni`)
+            .then(res => {
+                setPrenotazioni(res.data);
+            })
+        })
     }
 
     useEffect(() => {
@@ -29,6 +41,11 @@ export default function HomeUtente() {
                         <h2>{prenotazione.dataEOra}</h2>
                         <p>per la prestazione</p>
                         <h2>{prenotazione.prestazione}</h2>
+                        <div className="cardBottone lastButton" onClick={() => eliminaPrenotazione(prenotazione)}>
+                            <div className="icona">
+                                <FaRegTrashAlt size="50"/>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

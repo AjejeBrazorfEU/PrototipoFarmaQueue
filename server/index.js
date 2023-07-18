@@ -42,7 +42,8 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/homeUtente/getPrenotazioni', (req, res) => {
-    res.send(prenotazioni);
+  const prenotazioniUtente = prenotazioni.filter(p => p.idUtente === '123456');
+    res.send(prenotazioniUtente);
 })
 
 app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
@@ -51,7 +52,8 @@ app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
         id: prenotazioni.length + 1,
         farmacia: query.farmacia,
         dataEOra: query.dataEOra,
-        prestazione: query.prestazione
+        prestazione: query.prestazione,
+        idUtente: '123456'
         }
     console.log(prenotazione);
     prenotazioni.push(prenotazione);
@@ -63,6 +65,24 @@ app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
 
     // sending ok message 200
     res.sendStatus(200);
+  }
+);
+
+app.get('/homeUtente/eliminaPrenotazione', (req, res) => {
+  const query = req.query;
+    const prenotazione = prenotazioni.find(p => p.dataEOra === query.dataEOra && p.idUtente === '123456' && p.farmacia === query.farmacia && p.prestazione === query.prestazione);
+    if(!prenotazione) {
+      res.sendStatus(404);
+    }else{
+      prenotazioni = prenotazioni.filter(p => p.dataEOra !== query.dataEOra || p.idUtente !== '123456' || p.farmacia !== query.farmacia || p.prestazione !== query.prestazione);
+      logs.push({
+        tipo: "EliminaPrenotazione",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: '123456',
+    });
+
+      res.sendStatus(200);
+    }
   }
 );
 
@@ -193,14 +213,51 @@ app.get('/homeFarmacista/avantiUnAltro', (req, res) => {
 app.get('/homeTotem/nextPostoLibero', (req, res) => {
     const query = req.query;
     const farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
-    const prenotazioni = prenotazioni.filter(p => p.farmacia === farmacia.nome);
-    const orari = prenotazioni.map(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm"));
+    const prenotazioniOggi = prenotazioni.filter(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm").format("DD/MM/YYYY") === moment().format("DD/MM/YYYY") && p.farmacia === farmacia.nome);
+    const orariOggi = prenotazioniOggi.map(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm"));
 
-    const orariOggi = prenotazioni.map(p => moment(p.dataEOra, "DD/MM/YYYY HH:mm").format("DD/MM/YYYY") === moment().format("DD/MM/YYYY"));
+    const orari = [];
+    for(let i = 0; i < 24; i++) {
+      for(let j=0;j<4;j++){
+        // Controllo che sia un tempo futuro
+        if(moment().hour(i).minute(j*15).isAfter(moment())) {
+          orari.push(moment().hour(i).minute(j*15));
+        }
+      }
+    }
 
-    
+    // devo trovare il primo orario libero
+    for(let i = 0; i < orari.length; i++) {
+      const orario = orari[i];
+      if(!orariOggi.find(o => o.format("HH:mm") === orario.format("HH:mm"))) {
+        res.send(orario.format("DD/MM/YYYY HH:mm"));
+        return;
+      }
+    }
 
+});
 
+app.get('/homeTotem/aggiungiPrenotazioneTotem', (req, res) => {
+
+    const query = req.query;
+    const farmacia = farmacie.find(f => f.id === parseInt(query.idFarmacia));
+    const prenotazione = {
+        id: prenotazioni.length + 1,
+        dataEOra: query.dataEOra,
+        servita : false,
+        farmacia: farmacia.nome,
+        prestazione: query.prestazione,
+        farmaci: [],
+        idUtente: 'TOTEM',
+    }
+    prenotazioni.push(prenotazione);
+    logs.push({
+      tipo: "AggiungiPrenotazioneTotem",
+      orario: moment().format("DD/MM/YYYY HH:mm"),
+      idUtente: 'TOTEM',
+    });
+
+    res.sendStatus(200);
 });
 
 app.listen(port, () => {

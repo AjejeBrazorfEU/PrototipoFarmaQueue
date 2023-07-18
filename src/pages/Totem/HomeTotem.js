@@ -6,6 +6,7 @@ export default function HomeTotem() {
     const [state, setState] = useState({
         prestazione: "STATO",
         dataEOra: "",
+        idFarmacia: 699697,
     });
     
     const handleChange = (e) => {
@@ -20,7 +21,7 @@ export default function HomeTotem() {
         .then(res => {
             setState({
                 ...state,
-                dataEOra: res.dataEOra,
+                dataEOra: res.data,
             });
         })
     }
@@ -31,11 +32,12 @@ export default function HomeTotem() {
     
 
     const handleSubmit = () => {
-        console.log(state);
 
-        axios.get(`http://localhost:3001/homeTotem/prenotaPosto`, {params:state})
+        axios.get(`http://localhost:3001/homeTotem/aggiungiPrenotazioneTotem`, {params:state})
         .then(res => {
+            console.log(res);
             if(res.status === 200){
+                console.log(res);
                 alert("Prenotazione effettuata");
             }else{
                 alert("Errore");
