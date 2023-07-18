@@ -19,7 +19,7 @@ export default function HomeUtente() {
     }, []);
 
     return (
-        <div className="homeUtente">
+        <div className="container">
             <h1>HomeUtente</h1>
             <div className="prenotazioniUtente">
                 {prenotazioni.map((prenotazione) => (
