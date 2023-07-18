@@ -18,7 +18,7 @@ function LoginUser(username, password){
         case "totem":
             return roles.totem;
         default:
-            return roles.unregistered;
+            return roles.utente;
     }
 }
 

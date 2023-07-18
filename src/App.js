@@ -15,6 +15,7 @@ import ViewAggiungiFarmacista from './pages/Admin/ViewAggiungiFarmacista';
 import ViewAggiungiTotem from './pages/Admin/ViewAggiungiTotem';
 import ViewRegistrazioneUtenteAdmin from './pages/Admin/ViewRegistrazioneUtenteAdmin';
 import ViewVisualizzaLog from './pages/Admin/ViewVisualizzaLog';
+import ViewRegistraUtente from './pages/Utente/ViewRegistraUtente';
 import { roles } from './pages/Mock';
 import Header from './pages/Header';
 import { Routes, Route, useNavigate } from 'react-router-dom';
@@ -45,11 +46,11 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Login setToken={setToken}/>} />
-        <Route path='/homeUtente' element={<HomeUtente/>} />
+        <Route path='/homeUtente/:idUtente' element={<HomeUtente/>} />
         <Route path='/homeAdmin'  element={<HomeAdmin/>}/>
         <Route path='/homeFarmacista' element={<HomeFarmacista/>} />
         <Route path='/homeTotem' element={<HomeTotem/>} />
-        <Route path='/viewNuovaPrenotazioneUtente' element={<ViewNuovaPrenotazioneUtente/>} />
+        <Route path='/viewNuovaPrenotazioneUtente/:idUtente' element={<ViewNuovaPrenotazioneUtente/>} />
         <Route path='/homeGestioneFarmacie' element={<HomeGestioneFarmacie/>} />
         <Route path='/homeGestioneFarmacisti/:idFarmacia' element={<HomeGestioneFarmacisti/>} />
         <Route path='/homeGestioneTotem/:idFarmacia' element={<HomeGestioneTotem/>} />
@@ -59,6 +60,7 @@ function App() {
         <Route path='/viewAggiungiTotem' element={<ViewAggiungiTotem/>} />
         <Route path='/viewRegistrazioneUtenteAdmin' element={<ViewRegistrazioneUtenteAdmin/>} />
         <Route path='/viewVisualizzaLog' element={<ViewVisualizzaLog/>} />
+        <Route path='/viewRegistraUtente' element={<ViewRegistraUtente/>} />
         <Route path='*' element={<p>404</p>} />
       </Routes>
     </div>

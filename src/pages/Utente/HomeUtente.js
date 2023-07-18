@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaUserMd, FaLaptopMedical, FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 export default function HomeUtente() {
+    const {idUtente} = useParams();
     const [prenotazioni, setPrenotazioni] = useState([]);
     const navigate = useNavigate();
     
     const nuovaPrenotazione = () => {
-        navigate('/viewNuovaPrenotazioneUtente');
+        navigate('/viewNuovaPrenotazioneUtente/' + idUtente);
     }
 
     const eliminaPrenotazione = (prenotazione) => {
@@ -23,7 +24,7 @@ export default function HomeUtente() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/homeUtente/getPrenotazioni`)
+        axios.get(`http://localhost:3001/homeUtente/getPrenotazioni`, {params: {idUtente: idUtente}})
           .then(res => {
             setPrenotazioni(res.data);
           })

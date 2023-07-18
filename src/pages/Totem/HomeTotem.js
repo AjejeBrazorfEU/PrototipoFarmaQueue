@@ -50,7 +50,7 @@ export default function HomeTotem() {
         <div className="Screen">
             <h1>Buongiorno, da questo totem si può prenotare il prossimo posto libero in fila</h1>
             <h2>Prossimo posto libero</h2>
-            {state.dataEOra}
+            <h3>{state.dataEOra}</h3>
             <h2>Seleziona la prestazione</h2>
             <select name="prestazione" onChange={handleChange} value={state.prestazione}>
                 <option value="PRESSIONE">Pressione</option>

@@ -23,7 +23,7 @@ function Login({setToken}){
             if(res === roles.admin){
                 navigate('/homeAdmin');
             }else if(res === roles.utente){
-                navigate('/homeUtente');
+                navigate('/homeUtente/' + username);
             }else if(res === roles.farmacista){
                 navigate('/homeFarmacista');
             }else if(res === roles.totem){
@@ -57,6 +57,7 @@ function Login({setToken}){
                     />
                 </div>
                 <button disabled={!validateForm()} type="submit">Login</button>
+                <button onClick={() => navigate('/viewRegistraUtente')}>Registrati</button>
             </form>
         </div>
     );

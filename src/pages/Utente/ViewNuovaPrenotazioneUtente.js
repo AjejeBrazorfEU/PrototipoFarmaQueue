@@ -1,9 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
 function ViewNuovaPrenotazioneUtente() {
+    const { idUtente } = useParams();
 
     const [farmacia, setFarmacia] = useState("");
     const [prestazione, setPrestazione] = useState(new Date());
@@ -14,7 +15,8 @@ function ViewNuovaPrenotazioneUtente() {
         farmacia: "Farmacia Maggiore",
         dataEOra: new Date(),
         prestazione: "PRESSIONE",
-        farmaci: ""
+        farmaci: "",
+        idUtente: idUtente
       });
     
       const handleInputChange = (event) => {
@@ -41,7 +43,7 @@ function ViewNuovaPrenotazioneUtente() {
         axios.get(`http://localhost:3001/homeUtente/nuovaPrenotazione`, {params:stato})
         .then(res => { 
                     alert("Prenotazione effettuata");
-                    navigate('/homeUtente');
+                    navigate('/homeUtente/' + idUtente);
                         });
     };
 
@@ -80,7 +82,7 @@ function ViewNuovaPrenotazioneUtente() {
             */}
           <div className="divBottoni">
             <button type="submit" className="nuovoButton">Prenota</button>
-            <button onClick={() => handleClick("/HomeUtente")} className="annullaButton">Annulla</button>
+            <button onClick={() => handleClick("/HomeUtente/" + idUtente)} className="annullaButton">Annulla</button>
           </div>
         </form>
       </div>

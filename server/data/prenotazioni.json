@@ -6,7 +6,7 @@
     "prestazione": "PRESSIONE",
     "farmaci": [],
     "farmacia": "Farmacia Minore",
-    "idUtente": "123456"
+    "idUtente": "utente"
   },
   {
     "id": "64b25c8aa90f29ee6996f2a9",
@@ -15,6 +15,6 @@
     "prestazione": "ALTRO",
     "farmaci": [],
     "farmacia": "Farmacia Maggiore",
-    "idUtente": "123456"
+    "idUtente": "utente"
   }
 ]

@@ -43,7 +43,9 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/homeUtente/getPrenotazioni', (req, res) => {
-  const prenotazioniUtente = prenotazioni.filter(p => p.idUtente === '123456');
+  const query = req.query;
+  const prenotazioniUtente = prenotazioni.filter(p => p.idUtente === query.idUtente);
+  // const prenotazioniUtente = prenotazioni.filter(p => p.idUtente === '123456');
     res.send(prenotazioniUtente);
 })
 
@@ -54,12 +56,34 @@ app.get('/homeUtente/nuovaPrenotazione', (req, res) => {
         farmacia: query.farmacia,
         dataEOra: query.dataEOra,
         prestazione: query.prestazione,
-        idUtente: '123456'
+        idUtente: query.idUtente,
         }
     console.log(prenotazione);
     prenotazioni.push(prenotazione);
     logs.push({
         tipo: "NuovaPrenotazione",
+        orario: moment().format("DD/MM/YYYY HH:mm"),
+        idUtente: '123456',
+    });
+
+    // sending ok message 200
+    res.sendStatus(200);
+  }
+);
+
+app.get('/homeUtente/registraUtente' , (req, res) => {
+    const query = req.query;
+    const utente = {
+        id: utenti.length + 1,
+        nome: query.nome,
+        cognome: query.cognome,
+        email: query.email,
+        ruolo: 'utente'
+        }
+    console.log(utente);
+    utenti.push(utente);
+    logs.push({
+        tipo: "RegistraUtente",
         orario: moment().format("DD/MM/YYYY HH:mm"),
         idUtente: '123456',
     });
@@ -101,7 +125,6 @@ app.get('/homeAdmin/getFarmacia',   (req, res) => {
     }
   }
 );
-
 
 app.get('/homeAdmin/nuovaFarmacia', (req, res) => {
     const query = req.query;
