@@ -295,3 +295,8 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.cardNew {
+  border: 8px solid #14e42c;
+  font-size: large;
+}
